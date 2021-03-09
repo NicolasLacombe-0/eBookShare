@@ -1,6 +1,27 @@
 <nav>
     <div class="logo">
-        
+        <a href="/">
+            <img src="{{ asset("img/logo2.png") }}" alt="website logo">
+        </a>
     </div>
-    <div></div>
+    <div class="nav-content">
+        <a href="/">DISCOVER</a>
+        {% if not app.user %}
+        <div></div>
+        <div></div>
+        <div></div>
+        <a href="{{ path("inscription") }}">
+            <p>SIGN IN</p>
+        </a>
+        <a href="{{ path("app_login") }}">
+            <i class="far fa-user"></i>
+            <p>LOG IN</p>
+        </a>
+        {% else %}
+        <a href="{{ path("account") }}">
+            <i class="far fa-user"></i>
+            <p>PROFILE</p>
+        </a>
+        {% endif %}
+    </div>
 </nav>

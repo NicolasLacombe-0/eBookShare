@@ -3,5 +3,47 @@
 {% block title %}{% endblock %}
 
 {% block body %}
-<h1>Heyo!</h1>
+<main>
+    <section class="allGenres">
+        <h1>BROWSE BY GENRE</h1>
+        <div class="genresContainer">   
+            {# {% for genre in category %}
+                <div class="genreBox">
+                    <img src="{{asset('genre.image')}}" alt="image">
+                    <p>genre.name</p>
+                </div>
+            {% endfor %} #}
+
+            {# list made manually, make it a loop "for genre in category" later #}
+
+            <div class="genreBox">
+                <img src="{{ asset('img/horse.jpg')}}" alt="image">
+                <p>Fantasy</p>
+            </div>
+            <div class="genreBox">
+                <img src="{{ asset('img/rose.jpg') }}" alt="image">
+                <p>Romance</p>
+            </div>
+            <div class="genreBox">
+                <img src="{{ asset('img/hooded-man.jpg') }}" alt="image">
+                <p>Thriller</p>
+            </div>
+            <div class="genreBox">
+                <img src="{{ asset('img/watch.jpg') }}" alt="image">
+                <p>Classical</p>
+            </div>
+            <div class="genreBox">
+                <img src="{{ asset('img/ufo.jpg') }}" alt="image">
+                <p>Science-Fiction</p>
+            </div>
+            <div class="genreBox">
+                <img src="{{ asset('img/mouse.jpg') }}" alt="image">
+                <p>Children</p>
+            </div>
+        </div>
+    </section>
+    <section class="allBooks">
+    </section>
+
+</main>
 {% endblock %}

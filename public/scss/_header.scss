@@ -1,0 +1,44 @@
+header{
+    z-index: 5;
+    width: 100%;
+    height: 120px;
+    top: 0;
+    position: fixed;  //so the navbar follows the scroll
+    nav{
+        background-color: black;
+        width: 100%;
+        height:120px;
+        display: flex;
+        justify-content: space-between;
+        .logo{
+            height: 100%;
+            align-self: flex-start;
+        }
+        .nav-content{
+            height: 100%;
+            width: 90%;
+            align-self: center;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            a{
+                font-weight: 700;
+                color: white;
+                &:not(:nth-child(1)){ //every link except the first get a border and display flex for icon adjustments
+                    width: 10%;
+                    display: flex;
+                    justify-content: space-evenly;
+                    border: 1px white solid;
+                    border-radius: 3px;
+                    i{
+                        align-self: center;
+                        padding-right: 10%;
+                    }
+                }
+                
+            }
+            
+        }
+    }
+
+}

@@ -17,4 +17,12 @@ class BookController extends AbstractController
             'controller_name' => 'BookController',
         ]);
     }
+
+    /**
+     * @Route("/account", name="account")
+     */
+    public function profile(): Response
+    {
+        return $this->render('book/profile.html.twig');
+    }
 }
