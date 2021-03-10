@@ -1,8 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello EbookController!{% endblock %}
+{% block title %}eBookShare - Browsing{% endblock %}
 
 {% block body %}
+<main>
     <section class="genre">
         <h1>genre.name</h1>
         <div class="ebookContainer">   
@@ -15,19 +16,32 @@
 
             {# list made manually, make it a loop "for genre in category" later #}
 
-            <div class="ebookBox">
+            <a class="ebookBox" href="/ebook/displayEbook">
                 <img src="{{ asset('img/horse.jpg')}}" alt="book image">
-                <h2>The Witch's Tower</h2>
+                <div class="ebookContent"><h2>The Witch's Tower</h2></div>
+            </a>
+
+            <div class="ebookBox">
+                <img src="{{asset('book.image')}}" alt="book image">
+                <div class="ebookContent"><h2>book.title</h2></div>
             </div>
             <div class="ebookBox">
                 <img src="{{asset('book.image')}}" alt="book image">
-                <h2>book.title</h2>
+                <div class="ebookContent"><h2>book.title</h2></div>
             </div>
             <div class="ebookBox">
                 <img src="{{asset('book.image')}}" alt="book image">
-                <h2>book.title</h2>
+                <div class="ebookContent"><h2>book.title</h2></div>
+            </div>
+            <div class="ebookBox">
+                <img src="{{asset('book.image')}}" alt="book image">
+                <div class="ebookContent"><h2>book.title</h2></div>
+            </div>
+            <div class="ebookBox">
+                <img src="{{asset('book.image')}}" alt="book image">
+                <div class="ebookContent"><h2>book.title</h2></div>
             </div>
         </div>
     </section>
-
+</main>
 {% endblock %}

@@ -45,7 +45,9 @@ header nav .nav-content a:not(:nth-child(1)) i {
 }
 
 img {
-  max-height: 100%;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
 
 a {
@@ -82,11 +84,6 @@ body main .genresContainer .genreBox {
   justify-content: center;
   align-items: center;
 }
-body main .genresContainer .genreBox img {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-}
 body main .genresContainer .genreBox p {
   color: white;
   background-color: black;
@@ -104,10 +101,12 @@ body main .reviews-head > a {
   color: red;
 }
 body main .forms {
+  margin: 0 25%;
+  width: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 5%;
+  padding: 2%;
   background-color: white;
   border-radius: 3px;
   box-shadow: 1px 1px 1px 1px black;
@@ -133,6 +132,34 @@ body main .forms form .btn {
   padding: 3%;
   width: 100%;
   border-radius: 5px;
+}
+body main .ebookContainer {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+body main .ebookContainer .ebookBox {
+  margin: 2% 4.5% 2% 0;
+  border: 1px solid black;
+  width: 20%;
+  height: 60vh;
+}
+body main .ebookContainer .ebookBox img {
+  display: block;
+  height: 80%;
+}
+body main .ebookContainer .ebookBox .ebookContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20%;
+  background-color: #327D9C;
+}
+body main .ebookContainer .ebookBox .ebookContent h2 {
+  color: white;
+  text-decoration: underline;
+  margin: 0;
+  text-align: center;
 }
 
 /*# sourceMappingURL=style.css.map */

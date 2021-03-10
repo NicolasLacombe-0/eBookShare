@@ -17,4 +17,14 @@ class EbookController extends AbstractController
             'controller_name' => 'EbookController',
         ]);
     }
+
+    /**
+     * @Route("/ebook/displayEbook", name="displayEbook")
+     */
+    public function display(): Response
+    {
+        return $this->render('ebook/displayEbook.html.twig', [
+            'controller_name' => 'EbookController',
+        ]);
+    }
 }

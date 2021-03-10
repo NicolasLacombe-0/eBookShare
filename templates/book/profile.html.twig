@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{% endblock %}
+{% block title %}eBookShare - My Account{% endblock %}
 
 {% block body %}
 <main>
@@ -8,5 +8,8 @@
         <h1>MY REVIEWS</h1>
         <a href="{{ path("app_logout") }}" class="btn">Disconnect from account</a>
     </div>
+    <section class="forms">
+        <div class="review"></div>
+    </section>
 </main>
 {% endblock %}
