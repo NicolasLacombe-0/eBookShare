@@ -3,12 +3,15 @@
 {% block title %}Hello AdminSecuController!{% endblock %}
 
 {% block body %}
-
-        <h2>Create an account</h2>
+<main>
+    <section class="forms">
+    <h2>Create an account</h2>
         {{ form_start(form) }}
             {{ form_row(form.username,{'attr':{'placeholder':'username'},'label':' '}) }}
             {{ form_row(form.password,{'attr':{'placeholder':'password'},'label':' '}) }}
             {{ form_row(form.verificationPassword,{'attr':{'placeholder':'re-enter password'},'label':' '}) }}
-            <input type="submit" value="Register">
+            <input class="btn" type="submit" value="Register">
         {{ form_end(form) }}
+    </section>
+</main>
 {% endblock %}

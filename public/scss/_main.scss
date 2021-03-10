@@ -55,6 +55,39 @@ body{
                 color: red;
             }
         }
+        .forms{ // for forms pages (login/signin)
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 5%;
+            background-color: white;
+            border-radius: 3px;
+            box-shadow: 1px 1px 1px 1px black;
+            form{
+                
+                display: flex;
+                flex-direction: column;
+                width: 30%;
+                div{
+                    
+                    margin: 20px 0;
+                    input{
+                        box-sizing: border-box;
+                        padding: 3%;
+                        width: 100%;
+                        border-radius: 5px;
+                    }
+                }
+                .btn{
+                    margin: 20px 0;
+                    color: white;
+                    background-color: $gb;
+                    padding: 3%;
+                    width: 100%;
+                    border-radius: 5px;
+                }
+            }
+        }
 
     }
 }

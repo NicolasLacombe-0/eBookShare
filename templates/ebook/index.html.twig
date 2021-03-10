@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello EbookController!{% endblock %}
+
+{% block body %}
+    <section class="genre">
+        <h1>genre.name</h1>
+        <div class="ebookContainer">   
+            {# {% for book in category %}
+                <div class="ebookBox">
+                    <img src="{{asset('book.image')}}" alt="image">
+                    <h2>book.title</h2>
+                </div>
+            {% endfor %} #}
+
+            {# list made manually, make it a loop "for genre in category" later #}
+
+            <div class="ebookBox">
+                <img src="{{ asset('img/horse.jpg')}}" alt="book image">
+                <h2>The Witch's Tower</h2>
+            </div>
+            <div class="ebookBox">
+                <img src="{{asset('book.image')}}" alt="book image">
+                <h2>book.title</h2>
+            </div>
+            <div class="ebookBox">
+                <img src="{{asset('book.image')}}" alt="book image">
+                <h2>book.title</h2>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

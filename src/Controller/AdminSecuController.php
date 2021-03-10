@@ -12,18 +12,8 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
-class AdminSecuController extends AbstractController
+class AdminSecuController extends AbstractController //controller for the user inscription/login
 {
-    // /**
-    //  * @Route("/admin/secu", name="admin_secu")
-    //  */
-    // public function index(): Response
-    // {
-    //     return $this->render('admin_secu/index.html.twig', [
-    //         'controller_name' => 'AdminSecuController',
-    //     ]);
-    // }
-
     /**
      * @Route("/inscription", name="inscription")
      */

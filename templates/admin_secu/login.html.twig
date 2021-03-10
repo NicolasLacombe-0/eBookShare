@@ -3,20 +3,25 @@
 {% block title %}Hello AdminSecuController!{% endblock %}
 
 {% block body %}
+<main>
     {% if error %}
         <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
-
+    <section class="forms">
+    <h2>LOG IN</h2>
     <form action="{{ path('app_login') }}" method="post">
-        {# <label for="username">Username:</label> #}
-        <input type="text" id="username" name="_username" placeholder="username" value="{{ last_username }}"/>
-
-        {# <label for="password">Password:</label> #}
-        <input type="password" id="password" name="_password" placeholder="password"/>
-
-        <button type="submit">Continue</button>
+        <div>
+            {# <label for="username">Username:</label> #}
+            <input type="text" id="username" name="_username" placeholder="username" value="{{ last_username }}"/>
+        </div>
+        <div>
+            {# <label for="password">Password:</label> #}
+            <input type="password" id="password" name="_password" placeholder="password"/>
+        </div>
+        <button class="btn" type="submit">Continue</button>
     </form>
+    </section>
 
 
-
+</main>
 {% endblock %}
