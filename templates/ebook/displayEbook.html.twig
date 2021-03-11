@@ -4,5 +4,37 @@
 
 {% block body %}
 <main>
+    <section class="ebookDisplay">
+        <div class="imageHalf">
+            <img src='{{ asset('img/' ~ ebook.image) }}' alt="{{ebook.image}}">
+            <h3>Fantasy</h3>
+        </div>
+        <div class="contentHalf">
+            <div class ="contentHead">
+                <div class="contentTitle">
+                    <h2>{{ebook.title}}</h2>
+                    <p>Author:{{ebook.author}}</p>
+                </div>
+                <div class="btns">
+                    <div class="btn">READ ONLINE</div>
+                    <div class="btn">DOWNLOAD</div>
+                </div>
+            </div>
+            <p>{{ebook.synopsis}}</p>
+        </div>
+    </section>
+    <section class="comments">
+        <div class="commentsHead">
+            <h2>COMMENTS</h2>
+            <a href="#" class="btn">Add a comment +</a>
+        </div>
+        <ul class="commentsList">
+            <li class="comment">
+                <h3>Kevin</h3>
+                <p>Nice book</p>
+            </li>
+        </ul>
+
+    </section>
 </main>
 {% endblock %}

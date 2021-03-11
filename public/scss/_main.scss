@@ -1,4 +1,4 @@
-img{
+img{    // ------------------------------------------------ for every page
     height: 100%;
     width: 100%;
     object-fit: cover;
@@ -17,7 +17,9 @@ body{
     margin: 0;
     main{
         width:80%;
-        margin:5% 10%;
+        margin:5% 10% 0% 10%;
+
+
         .genresContainer{   // ------------------------------- for the home page
             display: flex;
             justify-content: space-between;
@@ -44,15 +46,9 @@ body{
                 }
             }
         }
-        .reviews-head{ // ------------------------------------------  for the profile page
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            &>a{
-                color: red;
-            }
-        }
-        .forms{ // for forms pages (login/signin)
+
+
+        .forms{ // ---------------------------------------- for forms pages (login/signin)
             margin: 0 25%;
             width: 50%;
             display: flex;
@@ -85,18 +81,58 @@ body{
                 }
             }
         }
-        .ebookContainer{
+
+
+        .reviews-head{ // ------------------------------------------  for the profile page
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            &>a{
+                color: red;
+            }
+        }
+        .reviews{
+            width: 80%;
+            margin: 0 10%;
+            hr{
+                margin: 0;
+                width: 80%;
+            }
+            .review{
+                width: 100%;
+                margin: 1%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                p{
+                    width: 50%;
+                    padding: 1%;
+                }
+                input{
+                    color: white;
+                    height: 50%;
+                    background-color: $gb;
+                }
+            }
+
+        }
+
+
+        .ebookContainer{  // -------------------------------------- book list (once you select a genre)
             width: 100%;
             display: flex;
             flex-wrap: wrap;
             .ebookBox{
                 margin: 2% 4.5% 2% 0;
+                box-shadow: 1px 1px 1px 1px black;
                 border: 1px solid black;
                 width: 20%;
                 height: 60vh;
                 img{
+                    background-color: black;
                     display: block;
                     height: 80%;
+                    object-fit: contain !important;
                 }
                 .ebookContent{
                     display: flex;
@@ -111,6 +147,78 @@ body{
                         text-align: center;
                     }
                 }
+            }
+        }
+        .ebookDisplay{  // --------- book's own page, content part
+            display: flex;
+            justify-content: space-between;
+            .imageHalf{
+                width: 25%;
+                img{
+                    box-shadow: 1px 1px 1px 1px black;
+                    border-radius: 3px;
+                    height: 90%;
+                }
+                h3{
+                    margin: 1% 0;
+                    background-color: $gb;
+                    text-align: center;
+                    width: 50%;
+                    border-radius: 50px;
+                    padding: 2%;
+                    color: white;
+                }
+            }
+            .contentHalf{
+                width: 70%;
+                .contentHead{
+                    display: flex;
+                    justify-content: space-between;
+                    .btns{
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        width: 40%;
+                        .btn{
+                            text-align: center;
+                            margin: 20px 0;
+                            color: white;
+                            background-color: $gb;
+                            padding: 5% 3%;
+                            width: 40%;
+                            border-radius: 5px;
+                            box-shadow: 1px 1px 1px 1px black;
+                        }
+                        .btn:nth-child(1){
+                            background-color: white;
+                            color: black;
+                            border: 1px solid black;
+                        }
+                    }
+                }
+            }
+        }
+        .comments{ // --------------- comment section on each book's page
+            margin-top: 5%;
+            padding: 2%;
+            background-color: white;
+            border-radius: 3px;
+            .commentsHead{
+                display: flex;
+                justify-content: space-between;
+                .btn{
+                    text-align: center;
+                    margin: 20px 0;
+                    color: white;
+                    background-color: $gb;
+                    padding: 1%;
+                    width: 12%;
+                    border-radius: 5px;
+                    box-shadow: 1px 1px 1px 1px black;
+                }
+            }
+            .commentsList{
+                list-style: none;
             }
         }
 

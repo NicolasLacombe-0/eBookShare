@@ -64,7 +64,7 @@ body {
 }
 body main {
   width: 80%;
-  margin: 5% 10%;
+  margin: 5% 10% 0% 10%;
 }
 body main .genresContainer {
   display: flex;
@@ -91,14 +91,6 @@ body main .genresContainer .genreBox p {
   position: absolute;
   padding: 2% 0;
   width: 100%;
-}
-body main .reviews-head {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-}
-body main .reviews-head > a {
-  color: red;
 }
 body main .forms {
   margin: 0 25%;
@@ -133,6 +125,38 @@ body main .forms form .btn {
   width: 100%;
   border-radius: 5px;
 }
+body main .reviews-head {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+body main .reviews-head > a {
+  color: red;
+}
+body main .reviews {
+  width: 80%;
+  margin: 0 10%;
+}
+body main .reviews hr {
+  margin: 0;
+  width: 80%;
+}
+body main .reviews .review {
+  width: 100%;
+  margin: 1%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+body main .reviews .review p {
+  width: 50%;
+  padding: 1%;
+}
+body main .reviews .review input {
+  color: white;
+  height: 50%;
+  background-color: #327D9C;
+}
 body main .ebookContainer {
   width: 100%;
   display: flex;
@@ -140,13 +164,16 @@ body main .ebookContainer {
 }
 body main .ebookContainer .ebookBox {
   margin: 2% 4.5% 2% 0;
+  box-shadow: 1px 1px 1px 1px black;
   border: 1px solid black;
   width: 20%;
   height: 60vh;
 }
 body main .ebookContainer .ebookBox img {
+  background-color: black;
   display: block;
   height: 80%;
+  object-fit: contain !important;
 }
 body main .ebookContainer .ebookBox .ebookContent {
   display: flex;
@@ -160,6 +187,78 @@ body main .ebookContainer .ebookBox .ebookContent h2 {
   text-decoration: underline;
   margin: 0;
   text-align: center;
+}
+body main .ebookDisplay {
+  display: flex;
+  justify-content: space-between;
+}
+body main .ebookDisplay .imageHalf {
+  width: 25%;
+}
+body main .ebookDisplay .imageHalf img {
+  box-shadow: 1px 1px 1px 1px black;
+  border-radius: 3px;
+  height: 90%;
+}
+body main .ebookDisplay .imageHalf h3 {
+  margin: 1% 0;
+  background-color: #327D9C;
+  text-align: center;
+  width: 50%;
+  border-radius: 50px;
+  padding: 2%;
+  color: white;
+}
+body main .ebookDisplay .contentHalf {
+  width: 70%;
+}
+body main .ebookDisplay .contentHalf .contentHead {
+  display: flex;
+  justify-content: space-between;
+}
+body main .ebookDisplay .contentHalf .contentHead .btns {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 40%;
+}
+body main .ebookDisplay .contentHalf .contentHead .btns .btn {
+  text-align: center;
+  margin: 20px 0;
+  color: white;
+  background-color: #327D9C;
+  padding: 5% 3%;
+  width: 40%;
+  border-radius: 5px;
+  box-shadow: 1px 1px 1px 1px black;
+}
+body main .ebookDisplay .contentHalf .contentHead .btns .btn:nth-child(1) {
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+}
+body main .comments {
+  margin-top: 5%;
+  padding: 2%;
+  background-color: white;
+  border-radius: 3px;
+}
+body main .comments .commentsHead {
+  display: flex;
+  justify-content: space-between;
+}
+body main .comments .commentsHead .btn {
+  text-align: center;
+  margin: 20px 0;
+  color: white;
+  background-color: #327D9C;
+  padding: 1%;
+  width: 12%;
+  border-radius: 5px;
+  box-shadow: 1px 1px 1px 1px black;
+}
+body main .comments .commentsList {
+  list-style: none;
 }
 
 /*# sourceMappingURL=style.css.map */
