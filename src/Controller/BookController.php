@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Repository\CategoryRepository;
+use App\Repository\CommentRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -23,9 +24,15 @@ class BookController extends AbstractController // controller for the home page 
 
     /**
      * @Route("/account", name="account")
+     *
+     * @param mixed $ebook
      */
-    public function profile(): Response
+    public function profile(CommentRepository $repository): Response
     {
-        return $this->render('book/profile.html.twig');
+        $comment = $repository->findAll(); //replace by findByUser
+
+        return $this->render('book/profile.html.twig', [
+            'comment' => $comment,
+        ]);
     }
 }

@@ -9,14 +9,17 @@
         <a href="{{ path("app_logout") }}" class="btn">Disconnect from account</a>
     </div>
     <section class="forms reviews">
+        {% for review in comment %}
         <div class="review">
-            <a href="/ebook/displayEbook"><h2>The Witch's Tower</h2></a>
-            <p>Nice book</p>
+            <a href="{{ path("displayEbook", {'id':review.ebook.id})}}">  
+                <h2>{{review.ebook.title}}</h2>
+            </a>
+            <p>{{review.content}}</p>
             <input type="submit" value="EDIT">
             <input type="submit" value="DELETE">
         </div>
         <hr>
-        
+        {% endfor %}
     </section>
 </main>
 {% endblock %}

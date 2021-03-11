@@ -28,6 +28,7 @@ class EbookRepository extends ServiceEntityRepository
         return $this->createQueryBuilder('e')
             ->andWhere('e.category = :val')
             ->setParameter('val', $category)
+            
             // ->orderBy('e.id', 'ASC')
             // ->setMaxResults(10)
             ->getQuery()

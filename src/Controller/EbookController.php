@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Ebook;
+use App\Repository\CategoryRepository;
 use App\Repository\EbookRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -27,14 +28,17 @@ class EbookController extends AbstractController
      *
      * @param mixed $category
      */
-    public function findPerCategory(EbookRepository $repository, $category): Response
+    public function findPerCategory(EbookRepository $repository, $category, CategoryRepository $categoryRepository): Response
     {
         $ebook = $repository->findByCategory($category);
+        $name = $categoryRepository->findOneBy([   //----------- name a new variable to get category.name (now name.name) out of a "for" revering to the database
+            'id' => $category,
+        ]);
 
         return $this->render('ebook/index.html.twig', [
             'ebook' => $ebook,
             'category' => $category,
-            // 'name' => intval($category),
+            'name' => $name,
         ]);
     }
 
