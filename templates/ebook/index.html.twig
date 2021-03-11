@@ -5,40 +5,18 @@
 {% block body %}
 <main>
     <section class="genre">
-        {# <h1>genre.name</h1> #}
-        <h1>Fantasy</h1>
+        <h1>{{category}}</h1>
         <div class="ebookContainer">   
-            {# {% for book in category %}
-                <div class="ebookBox">
-                    <img src="{{asset('book.image')}}" alt="image">
-                    <h2>book.title</h2>
-                </div>
-            {% endfor %} #}
 
-            {# list made manually, make it a loop "for genre in category" later #}
             {% for ebook in ebook %}
             <a class="ebookBox" href="{{ path('displayEbook', {'id' : ebook.id }) }}">
                 <img src="{{ asset('img/witchstower.jpg')}}" alt="book image">
-                <div class="ebookContent"><h2>The Witch's Tower</h2></div>
+                <div class="ebookContent"><h2>{{ebook.title}}</h2></div>
             </a>
             {% endfor %}
+
+            {# list made manually, make it a loop "for genre in category" later #}
             {# <div class="ebookBox">
-                <img src="{{asset('book.image')}}" alt="book image">
-                <div class="ebookContent"><h2>book.title</h2></div>
-            </div>
-            <div class="ebookBox">
-                <img src="{{asset('book.image')}}" alt="book image">
-                <div class="ebookContent"><h2>book.title</h2></div>
-            </div>
-            <div class="ebookBox">
-                <img src="{{asset('book.image')}}" alt="book image">
-                <div class="ebookContent"><h2>book.title</h2></div>
-            </div>
-            <div class="ebookBox">
-                <img src="{{asset('book.image')}}" alt="book image">
-                <div class="ebookContent"><h2>book.title</h2></div>
-            </div>
-            <div class="ebookBox">
                 <img src="{{asset('book.image')}}" alt="book image">
                 <div class="ebookContent"><h2>book.title</h2></div>
             </div> #}

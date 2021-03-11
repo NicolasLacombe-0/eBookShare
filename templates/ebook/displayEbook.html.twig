@@ -7,7 +7,7 @@
     <section class="ebookDisplay">
         <div class="imageHalf">
             <img src='{{ asset('img/' ~ ebook.image) }}' alt="{{ebook.image}}">
-            <h3>Fantasy</h3>
+            <a href="{{ path("ebookPerCategory",{'category':ebook.category.id})}}"><h3>{{ebook.category.name}}</h3></a>
         </div>
         <div class="contentHalf">
             <div class ="contentHead">

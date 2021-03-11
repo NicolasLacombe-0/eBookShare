@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\CategoryRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -11,10 +12,12 @@ class BookController extends AbstractController // controller for the home page 
     /**
      * @Route("/", name="book")
      */
-    public function index(): Response
+    public function index(CategoryRepository $repository): Response
     {
+        $category = $repository->findAll();
+
         return $this->render('book/index.html.twig', [
-            'controller_name' => 'BookController',
+            'category' => $category,
         ]);
     }
 

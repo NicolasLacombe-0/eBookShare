@@ -22,19 +22,18 @@ class EbookRepository extends ServiceEntityRepository
     // /**
     //  * @return Ebook[] Returns an array of Ebook objects
     //  */
-    /*
-    public function findByExampleField($value)
+
+    public function findByCategory($category)
     {
         return $this->createQueryBuilder('e')
-            ->andWhere('e.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('e.id', 'ASC')
-            ->setMaxResults(10)
+            ->andWhere('e.category = :val')
+            ->setParameter('val', $category)
+            // ->orderBy('e.id', 'ASC')
+            // ->setMaxResults(10)
             ->getQuery()
             ->getResult()
         ;
     }
-    */
 
     /*
     public function findOneBySomeField($value): ?Ebook

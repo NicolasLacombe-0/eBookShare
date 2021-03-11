@@ -20,7 +20,7 @@
         {% else %}
         <a href="{{ path("account") }}">
             <i class="far fa-user"></i>
-            <p>PROFILE</p>
+            <p>{{app.user.username}}</p>
         </a>
         {% endif %}
     </div>

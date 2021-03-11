@@ -10,15 +10,31 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class EbookController extends AbstractController
 {
+    // /**
+    //  * @Route("/ebook", name="ebook")
+    //  */
+    // public function index(EbookRepository $repository): Response
+    // {
+    //     $ebook = $repository->findAll();
+
+    //     return $this->render('ebook/index.html.twig', [
+    //         'ebook' => $ebook,
+    //     ]);
+    // }
+
     /**
-     * @Route("/ebook", name="ebook")
+     * @Route("/ebook/{category}", name="ebookPerCategory")
+     *
+     * @param mixed $category
      */
-    public function index(EbookRepository $repository): Response
+    public function findPerCategory(EbookRepository $repository, $category): Response
     {
-        $ebook = $repository->findAll();
+        $ebook = $repository->findByCategory($category);
 
         return $this->render('ebook/index.html.twig', [
             'ebook' => $ebook,
+            'category' => $category,
+            // 'name' => intval($category),
         ]);
     }
 
