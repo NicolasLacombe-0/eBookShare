@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\CommentRepository;
+use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -32,6 +33,16 @@ class Comment
      * @ORM\JoinColumn(nullable=false)
      */
     private $ebook;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $updatedAt;
+
+    public function __toString()
+    {
+        return $this->updatedAt;
+    }
 
     public function getId(): ?int
     {
@@ -70,6 +81,20 @@ class Comment
     public function setEbook(?Ebook $ebook): self
     {
         $this->ebook = $ebook;
+
+        return $this;
+    }
+
+    ///////////////////////////
+
+    public function getUpdatedAt(): ?DateTimeInterface
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(DateTimeInterface $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
 
         return $this;
     }

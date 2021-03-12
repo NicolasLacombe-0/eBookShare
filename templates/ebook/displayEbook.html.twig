@@ -28,15 +28,29 @@
     <section class="comments">
         <div class="commentsHead">
             <h2>COMMENTS</h2>
-            <a href="#" class="btn">Add a comment +</a>
-        </div>
-        <ul class="commentsList">
-            <li class="comment">
-                <h3>Kevin</h3>
-                <p>Nice book</p>
-            </li>
-        </ul>
+            {% if app.user %}
+            {# <a href="{{ path('comment_add',{'id':ebook.id}) }}" class="btn">Add a comment +</a> #}
+            {{form_start(commentForm)}}
+                {{form_row(commentForm.content,{'attr':{'placeholder':'Write your comment'}})}}
+                <button type="submit" class="btn">Comment</button>
+            {{form_end(commentForm)}}
 
+            {% else %}
+            <a href="{{ path("app_login") }}" class="btn">Log in to comment</a>
+            {% endif %}
+        </div>
+        <ol class="commentsList">
+            <hr>
+            {% for review in comment | reverse(true)%}
+            <li class="comment">
+                <h3>{{review.user.username}}</h3>
+                <p class="commentDate">{{review.updatedAt|date('m/d/Y')}} at {{review.updatedAt|date('h')}}h{{review.updatedAt|date('i')}}</p>
+                <textarea readonly class="commentContent">{{review.content}}</textarea>
+            </li>
+            <hr>
+            {% endfor %}
+        </ol>
     </section>
+
 </main>
 {% endblock %}

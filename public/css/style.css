@@ -118,12 +118,36 @@ body main .forms form div input {
   border-radius: 5px;
 }
 body main .forms form .btn {
+  font-size: 16px;
+  text-align: center;
   margin: 20px 0;
   color: white;
   background-color: #327D9C;
   padding: 3%;
   width: 100%;
   border-radius: 5px;
+  border: 1px solid #FAEBD7;
+}
+body main .forms form a {
+  margin-top: 6.6px !important;
+  box-sizing: border-box;
+}
+body main .comments form {
+  width: 100%;
+}
+body main .comments form #comment div {
+  display: flex;
+  flex-direction: column;
+}
+body main .comments form #comment div label {
+  display: none;
+}
+body main .comments form #comment div textarea {
+  height: 20vh;
+}
+body main .comments form .btn {
+  margin: 5% 40%;
+  width: 20%;
 }
 body main .reviews-head {
   width: 100%;
@@ -259,6 +283,25 @@ body main .comments .commentsHead .btn {
 }
 body main .comments .commentsList {
   list-style: none;
+}
+body main .comments .commentsList hr {
+  margin: 0;
+  width: 80%;
+}
+body main .comments .commentsList .comment h3 {
+  margin-bottom: 0;
+}
+body main .comments .commentsList .comment .commentDate {
+  margin-top: 0;
+  font-style: italic;
+}
+body main .comments .commentsList .comment .commentContent {
+  width: 80%;
+  font-family: "Gothic A1";
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border: none;
+  resize: vertical;
 }
 
 /*# sourceMappingURL=style.css.map */

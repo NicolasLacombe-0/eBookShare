@@ -72,12 +72,43 @@ body{
                     }
                 }
                 .btn{
+                    font-size: 16px;
+                    text-align: center;
                     margin: 20px 0;
                     color: white;
                     background-color: $gb;
                     padding: 3%;
                     width: 100%;
                     border-radius: 5px;
+                    border: 1px solid $aw;
+                }
+                a{
+                    margin-top: 6.6px !important;
+                    box-sizing: border-box;
+                    
+                }
+            }
+        }
+        .comments{
+            // margin: 10%;
+            // width: 80%;
+            form{
+                width: 100%;
+                #comment{
+                    div{
+                    display: flex;
+                    flex-direction: column;
+                    label{
+                        display: none;
+                    }
+                    textarea{
+                        height: 20vh;
+                    }
+                    }
+                }
+                .btn{
+                    margin: 5% 40%;
+                    width: 20%;
                 }
             }
         }
@@ -219,6 +250,29 @@ body{
             }
             .commentsList{
                 list-style: none;
+                hr{
+                    margin: 0;
+                    width: 80%;
+                }
+                .comment{
+                    h3{
+                        margin-bottom: 0;
+                    }
+                    .commentDate{
+                        margin-top: 0;
+                        font-style: italic;
+                    }
+                    .commentContent{
+                        width: 80%;
+                        font-family: "Gothic A1";
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        border: none;
+                        resize: vertical;
+                        
+                    }
+                    
+                }
             }
         }
 

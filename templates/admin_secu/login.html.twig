@@ -5,7 +5,7 @@
 {% block body %}
 <main>
     {% if error %}
-        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        <div style="margin:0 25%">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
     <section class="forms">
     <h2>LOG IN</h2>
@@ -19,6 +19,8 @@
             <input type="password" id="password" name="_password" placeholder="password"/>
         </div>
         <button class="btn" type="submit">Continue</button>
+        <label for="signin">No account?</label>
+        <a class="btn" name="signin" href="{{ path("inscription") }}">Sign in</a>
     </form>
     </section>
 

@@ -28,7 +28,7 @@ class AdminSecuController extends AbstractController //controller for the user i
             $em->persist($user);
             $em->flush();
 
-            return $this->redirectToRoute('book');
+            return $this->redirectToRoute('app_login');
         }
 
         return $this->render('admin_secu/signin.html.twig', [

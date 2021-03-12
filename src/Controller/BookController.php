@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\User;
 use App\Repository\CategoryRepository;
 use App\Repository\CommentRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -24,14 +25,19 @@ class BookController extends AbstractController // controller for the home page 
 
     /**
      * @Route("/account", name="account")
-     *
-     * @param mixed $ebook
      */
-    public function profile(CommentRepository $repository): Response
+    public function profile(CommentRepository $commentRepository): Response
     {
-        $comment = $repository->findAll(); //replace by findByUser
+        /**
+         * @var User $user
+         */
+        $user = $this->getUser();
+        $comment = $commentRepository->findBy([
+            'user' => $user,
+        ]);
 
         return $this->render('book/profile.html.twig', [
+            'user' => $user,
             'comment' => $comment,
         ]);
     }

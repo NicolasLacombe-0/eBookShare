@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    eBookStore - commenting
+{% endblock %}
+
+{% block body %}
+<main>
+    <section class="forms comments">
+        <p>Write your comment :</p>
+        {{ form_start(form)}}
+            {{ form_widget(form) }}
+            <input type="submit" class="btn" value="Send">
+        {{ form_end(form) }}
+    </section>
+</main>
+{% endblock %}
