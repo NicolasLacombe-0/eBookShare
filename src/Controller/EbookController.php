@@ -93,17 +93,7 @@ class EbookController extends AbstractController
             $entityManager->flush();
             // $this->addFlash('success', ($edit) ? 'Edited comment successfully' : 'Comment was added');
 
-            return $this->redirectToRoute('displayEbook', ['id' => $ebook->getId()]);
+            return $this->redirectToRoute('account');
         }
-
-        return $this->render(
-            'ebook/displayEbook.html.twig',
-            [
-                'ebook' => $ebook,
-                'comment' => $comment,
-                'commentForm' => $form->createView(),
-                // 'isModification' => null !== $comment->getId(),
-            ]
-        );
     }
 }

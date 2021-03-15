@@ -2,10 +2,13 @@
 
 namespace App\Controller;
 
+use App\Entity\Comment;
 use App\Entity\User;
 use App\Repository\CategoryRepository;
 use App\Repository\CommentRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -40,5 +43,19 @@ class BookController extends AbstractController // controller for the home page 
             'user' => $user,
             'comment' => $comment,
         ]);
+    }
+
+    /**
+     * @Route("/account", name="commentDeletion", methods="delete")
+     */
+    public function suppression(Comment $comment, Request $request, EntityManagerInterface $entityManager): Response
+    {
+        if ($this->isCsrfTokenValid('SUP'.$comment->getId(), $request->get('_token'))) {
+            $entityManager->remove($comment);
+            $entityManager->flush();
+            $this->addFlash('success', 'Successfully deleted');
+
+            return $this->redirectToRoute('account');
+        }
     }
 }

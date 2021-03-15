@@ -22,39 +22,51 @@ class CommentController extends AbstractController
         ]);
     }
 
+    /**
+     * @Route("/comment/editComment/{id}", name="commentEdit")
+     */
+    public function editingComment(Comment $comment, Request $request, EntityManagerInterface $entityManager): Response
+    {
+        $form = $this->createForm(CommentType::class, $comment);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $comment->setUpdatedAt(new \DateTime())
+            ;
+
+            $entityManager->persist($comment);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('account');
+        }
+
+        return $this->render(
+            'comment/editComment.html.twig',
+            [
+                'comment' => $comment,
+                'form' => $form->createView(),
+            ]
+        );
+    }
+
     // /**
-    //  * @Route("/comment/addingComment", name="comment_add")
-    //  *
-    //  * @param mixed $ebook
+    //  * @Route("/admin/fruit/{id}", name="commentDeletion", methods="delete")
     //  */
-    // public function modification(Comment $comment = null, Request $request, EntityManagerInterface $entityManager): Response
+    // public function suppression(Fruit $fruit, Request $request, EntityManagerInterface $entityManager): Response
     // {
-    //     if (!$comment) {
-    //         $comment = new Comment();
-    //     }
-    //     $form = $this->createForm(CommentType::class, $comment);
-    //     $form->handleRequest($request);
-
-    //     if ($form->isSubmitted() && $form->isValid()) {
-    //         $edit = null !== $comment->getId();
-    //         $comment->setUpdatedAt(new \DateTime())
-    //             ->setEbook($ebook)
-    //         ;
-
-    //         $entityManager->persist($comment);
+    //     if ($this->isCsrfTokenValid('SUP'.$fruit->getId(), $request->get('_token'))) {
+    //         $entityManager->remove($fruit);
     //         $entityManager->flush();
-    //         $this->addFlash('success', ($edit) ? 'Edited comment successfully' : 'Comment was added');
+    //         $this->addFlash('success', 'Suppression réussie');
 
-    //         return $this->redirectToRoute('displayEbook', ['id' => $ebook->getId()]);
+    //         return $this->redirectToRoute('admin_fruit');
     //     }
-
-    //     return $this->render(
-    //         'comment/addingComment.html.twig',
-    //         [
-    //             'comment' => $comment,
-    //             'form' => $form->createView(),
-    //             'isModification' => null !== $comment->getId(),
-    //         ]
-    //     );
+    //
+        // return $this->render(
+        //     'admin/admin_fruit/adminFruit.html.twig',
+        //     [
+        //         'fruit' => $fruit,
+        //     ]
+        // );
     // }
 }
