@@ -27,7 +27,7 @@ class BookController extends AbstractController // controller for the home page 
     }
 
     /**
-     * @Route("/account", name="account")
+     * @Route("/account", name="account", methods="GET")
      */
     public function profile(CommentRepository $commentRepository): Response
     {
@@ -46,9 +46,9 @@ class BookController extends AbstractController // controller for the home page 
     }
 
     /**
-     * @Route("/account", name="commentDeletion", methods="delete")
+     * @Route("/account/{id}", name="commentDeletion", methods="delete")
      */
-    public function suppression(Comment $comment, Request $request, EntityManagerInterface $entityManager): Response
+    public function deletion(Comment $comment, Request $request, EntityManagerInterface $entityManager): Response
     {
         if ($this->isCsrfTokenValid('SUP'.$comment->getId(), $request->get('_token'))) {
             $entityManager->remove($comment);

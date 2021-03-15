@@ -15,20 +15,22 @@
                 <h2>{{review.ebook.title}}</h2>
             </a>
             <p>{{review.content}}</p>
-            <a href="{{ path('commentEdit',{'id' : review.id, 'ebook' : review.ebook.id}) }}">EDIT</a>
-            {# <input type="submit" value="EDIT">
-            <input type="submit" value="DELETE"> #}
-            {# {{form_start(commentForm)}}
-                {{form_row(commentForm.content,{'attr':{'placeholder':review.content},'label':' '})}}
-                <button type="submit" class="btn">EDIT</button>
-            {{form_end(commentForm)}} #}
+            <a class="btn" href="{{ path('commentEdit',{'id' : review.id, 'ebook' : review.ebook.id}) }}">EDIT</a>
+            
+            {# to eventually edit comments from this page (not figured out how yet) #}
+
+            {# {{ form_start(form)}}
+            {{form_row(form.content,{'attr':{'placeholder':comment.content,'label':'Edit your comment'}})}}
+            <input type="submit" class="btn" value="Edit">
+            {{ form_end(form) }} #}
+
+            {# <a href="{{ path('commentDeletion',{'id':review.id}) }}">DELETE</a> #}
 
             <form method="POST" action="{{ path('commentDeletion',{'id' : review.id}) }}">
                 <input type="hidden" name="_method" value="delete">
                 <input type="hidden" name="_token" value="{{csrf_token('SUP' ~ review.id ) }}">
-                <input type="submit" value="DELETE">
+                <input class="btn" type="submit" name="_method" value="DELETE">
             </form>
-
         </div>
         <hr>
         {% endfor %}
