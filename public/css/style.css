@@ -281,6 +281,20 @@ body main .comments .commentsHead .btn {
   border-radius: 5px;
   box-shadow: 1px 1px 1px 1px black;
 }
+body main .comments .commentsHead form {
+  display: flex;
+  justify-content: space-evenly;
+}
+body main .comments .commentsHead form div {
+  margin-top: 1%;
+  width: 60%;
+}
+body main .comments .commentsHead form div textarea {
+  width: 100%;
+  border-radius: 3px;
+  font-family: "Gothic A1";
+  resize: none;
+}
 body main .comments .commentsList {
   list-style: none;
 }

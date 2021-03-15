@@ -53,6 +53,8 @@ class EbookController extends AbstractController
      */
     public function display(Ebook $ebook, CommentRepository $commentRepository): Response
     {
+        $comment = new Comment();
+        $form = $this->createForm(CommentType::class, $comment);
         $comment = $commentRepository->findBy([
             'ebook' => $ebook,
         ]);
@@ -60,6 +62,7 @@ class EbookController extends AbstractController
         return $this->render('ebook/displayEbook.html.twig', [
             'ebook' => $ebook,
             'comment' => $comment,
+            'commentForm' => $form->createView(),
         ]);
     }
 
@@ -70,7 +73,7 @@ class EbookController extends AbstractController
      *
      * @param mixed $ebook
      */
-    public function modification(Ebook $ebook, Comment $comment = null, Request $request, EntityManagerInterface $entityManager, Security $security): Response
+    public function addComment(Ebook $ebook, Comment $comment = null, Request $request, EntityManagerInterface $entityManager, Security $security): Response
     {
         // if (!$comment) {
         $comment = new Comment();
