@@ -118,8 +118,14 @@ body{
             width: 100%;
             display: flex;
             justify-content: space-between;
-            &>a{
+            :nth-child(3){
                 color: red;
+            }
+            button{
+                a{color: white;}
+                height: 50px;
+                background-color: $gb;
+                border-radius: 5px;
             }
         }
         .reviews{
@@ -301,6 +307,96 @@ body{
                     }
                 }
             }
+        }
+        
+    }
+    
+    .adminHead,.adminTables{
+        display: flex;
+        justify-content: space-around;
+        .adminComments,.adminBooks,.adminUsers{
+            display: flex;
+            justify-content: space-around;
+            width: 38%;
+            background-color: white;
+            border: 1px black solid;
+            border-radius: 3px;
+            box-shadow: 1px 1px 1px 1px black;
+            text-align: center;
+            div{
+                width: 16%;
+            }
+        }
+        .adminUsers{
+            width: 19%;
+        }
+    }
+    .adminTables{
+        
+        margin-top: 3%;
+        div{
+            background-color: $gb !important;
+            color: white;
+            padding: 1% 0;
+        }
+    }
+    .adminContent{
+        display: flex;
+        justify-content: space-around;
+        .adminComments,.adminBooks,.adminUsers{
+            background-color: white;
+            border: 1px black solid;
+            border-radius: 3px;
+            box-shadow: 1px 1px 1px 1px black;
+            width: 38%;
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+        }
+        .adminUsers{
+            width: 19%;
+        }
+        .adminCol{
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            a{
+                line-height: 28px;
+                box-sizing: border-box;
+            }
+            .btn{
+                font-size: 13px;
+                display: block;
+                color: white;
+                background-color: $gb;
+                height: 30px;
+                width: 70%;
+                border-radius: 3px;
+                border: 1px black solid;
+            }
+            .tableParam{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 15%;
+                font-size: 1em;
+                resize: none;
+                h2{
+                    color: black;
+                    font-size: 1em;
+                }
+                form{
+                    input{
+                        width: 100% !important;
+                    }
+                }
+            }
+
+        }
+        .line{
+            width: 100%;
+            border: 1px black solid;
         }
     }
 }

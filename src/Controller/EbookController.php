@@ -89,7 +89,7 @@ class EbookController extends AbstractController
             $entityManager->persist($comment);
             $entityManager->flush();
 
-            return $this->redirectToRoute('account');
+            return $this->redirectToRoute('displayEbook', ['id' => $ebook->getId()]);
         }
     }
 }

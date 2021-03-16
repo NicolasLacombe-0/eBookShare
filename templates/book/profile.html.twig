@@ -7,7 +7,7 @@
     <div class="reviews-head">
         <h1>MY REVIEWS</h1>
         {% if is_granted('ROLE_ADMIN') %}
-        <a href="{{ path("admin") }}" class="btn">Go to admin pannel</a>
+        <button><a href="{{ path("admin") }}" class="btn">Go to admin pannel</a></button>
         {% endif %}
         <a href="{{ path("app_logout") }}" class="btn">Disconnect from account</a>
     </div>
@@ -35,6 +35,10 @@
             </form>
         </div>
         <hr>
+        {% else %}
+        <div class="review">
+        <span>You currently don't have a single comment ! Check any book to write one in its comment section.</span>
+        </div>
         {% endfor %}
     </section>
 </main>

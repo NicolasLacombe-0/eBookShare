@@ -37,7 +37,8 @@ class CommentController extends AbstractController
             $entityManager->persist($comment);
             $entityManager->flush();
 
-            return $this->redirectToRoute('account');
+            return $this->redirectToRoute('displayEbook', ['id' => $comment->getEbook()->getId()])
+            ;
         }
 
         return $this->render(

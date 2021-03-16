@@ -154,8 +154,16 @@ body main .reviews-head {
   display: flex;
   justify-content: space-between;
 }
-body main .reviews-head > a {
+body main .reviews-head :nth-child(3) {
   color: red;
+}
+body main .reviews-head button {
+  height: 50px;
+  background-color: #327D9C;
+  border-radius: 5px;
+}
+body main .reviews-head button a {
+  color: white;
 }
 body main .reviews {
   width: 80%;
@@ -331,6 +339,90 @@ body main .comments .commentsList .comment .commentContent {
   text-overflow: ellipsis;
   border: none;
   resize: vertical;
+}
+body .adminHead, body .adminTables {
+  display: flex;
+  justify-content: space-around;
+}
+body .adminHead .adminComments, body .adminHead .adminBooks, body .adminHead .adminUsers, body .adminTables .adminComments, body .adminTables .adminBooks, body .adminTables .adminUsers {
+  display: flex;
+  justify-content: space-around;
+  width: 38%;
+  background-color: white;
+  border: 1px black solid;
+  border-radius: 3px;
+  box-shadow: 1px 1px 1px 1px black;
+  text-align: center;
+}
+body .adminHead .adminComments div, body .adminHead .adminBooks div, body .adminHead .adminUsers div, body .adminTables .adminComments div, body .adminTables .adminBooks div, body .adminTables .adminUsers div {
+  width: 16%;
+}
+body .adminHead .adminUsers, body .adminTables .adminUsers {
+  width: 19%;
+}
+body .adminTables {
+  margin-top: 3%;
+}
+body .adminTables div {
+  background-color: #327D9C !important;
+  color: white;
+  padding: 1% 0;
+}
+body .adminContent {
+  display: flex;
+  justify-content: space-around;
+}
+body .adminContent .adminComments, body .adminContent .adminBooks, body .adminContent .adminUsers {
+  background-color: white;
+  border: 1px black solid;
+  border-radius: 3px;
+  box-shadow: 1px 1px 1px 1px black;
+  width: 38%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+body .adminContent .adminUsers {
+  width: 19%;
+}
+body .adminContent .adminCol {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+body .adminContent .adminCol a {
+  line-height: 28px;
+  box-sizing: border-box;
+}
+body .adminContent .adminCol .btn {
+  font-size: 13px;
+  display: block;
+  color: white;
+  background-color: #327D9C;
+  height: 30px;
+  width: 70%;
+  border-radius: 3px;
+  border: 1px black solid;
+}
+body .adminContent .adminCol .tableParam {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 15%;
+  font-size: 1em;
+  resize: none;
+}
+body .adminContent .adminCol .tableParam h2 {
+  color: black;
+  font-size: 1em;
+}
+body .adminContent .adminCol .tableParam form input {
+  width: 100% !important;
+}
+body .adminContent .line {
+  width: 100%;
+  border: 1px black solid;
 }
 
 /*# sourceMappingURL=style.css.map */

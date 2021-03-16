@@ -6,7 +6,7 @@
 
 {% block body %}
 <main>
-    <section class="forms comments">
+    <section class="forms">
         {{ form_start(form)}}
             {{form_row(form.content,{'attr':{'placeholder':comment.content,'label':'Edit your comment'}})}}
             <input type="submit" class="btn" value="Edit">

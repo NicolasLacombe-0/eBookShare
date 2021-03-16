@@ -57,7 +57,7 @@ class BookController extends AbstractController // controller for the home page 
             $entityManager->flush();
             $this->addFlash('success', 'Successfully deleted');
 
-            return $this->redirectToRoute('account');
+            return $this->redirectToRoute('account', ['id' => $comment->getUser()->getId()]);
         }
     }
 }
