@@ -18,7 +18,7 @@
             <p>LOG IN</p>
         </a>
         {% else %}
-        <a href="{{ path("account")}}">
+        <a href="{{ path("account",{'id':app.user.id})}}">
             <i class="far fa-user"></i>
             <p>{{app.user.username}}</p>
         </a>

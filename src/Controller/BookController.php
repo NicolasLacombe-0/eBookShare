@@ -7,6 +7,7 @@ use App\Entity\User;
 use App\Repository\CategoryRepository;
 use App\Repository\CommentRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -27,7 +28,8 @@ class BookController extends AbstractController // controller for the home page 
     }
 
     /**
-     * @Route("/account", name="account", methods="GET")
+     * @Route("/account/{id}", name="account", methods="GET")
+     * @IsGranted("ROLE_USER")
      */
     public function profile(CommentRepository $commentRepository): Response
     {

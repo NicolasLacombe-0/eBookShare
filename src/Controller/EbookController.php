@@ -75,15 +75,12 @@ class EbookController extends AbstractController
      */
     public function addComment(Ebook $ebook, Comment $comment = null, Request $request, EntityManagerInterface $entityManager, Security $security): Response
     {
-        // if (!$comment) {
         $comment = new Comment();
-        // }
         $form = $this->createForm(CommentType::class, $comment);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $user = $security->getUser();
-            // $edit = null !== $comment->getId();
             $comment->setUpdatedAt(new \DateTime())
                 ->setEbook($ebook)
                 ->setUser($user)
@@ -91,7 +88,6 @@ class EbookController extends AbstractController
 
             $entityManager->persist($comment);
             $entityManager->flush();
-            // $this->addFlash('success', ($edit) ? 'Edited comment successfully' : 'Comment was added');
 
             return $this->redirectToRoute('account');
         }

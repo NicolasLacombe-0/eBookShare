@@ -6,6 +6,9 @@
 <main>
     <div class="reviews-head">
         <h1>MY REVIEWS</h1>
+        {% if is_granted('ROLE_ADMIN') %}
+        <a href="{{ path("admin") }}" class="btn">Go to admin pannel</a>
+        {% endif %}
         <a href="{{ path("app_logout") }}" class="btn">Disconnect from account</a>
     </div>
     <section class="forms reviews">
@@ -16,7 +19,6 @@
             </a>
             <p>{{review.content}}</p>
             <a class="btn" href="{{ path('commentEdit',{'id' : review.id, 'ebook' : review.ebook.id}) }}">EDIT</a>
-            
             {# to eventually edit comments from this page (not figured out how yet) #}
 
             {# {{ form_start(form)}}
