@@ -5,14 +5,14 @@
 header {
   z-index: 5;
   width: 100%;
-  height: 120px;
+  height: 60px;
   top: 0;
   position: fixed;
 }
 header nav {
   background-color: black;
   width: 100%;
-  height: 120px;
+  height: 60px;
   display: flex;
   justify-content: space-between;
 }
@@ -43,6 +43,9 @@ header nav .nav-content a:not(:nth-child(1)) i {
   align-self: center;
   padding-right: 10%;
 }
+header nav .nav-content a p {
+  margin: 10px 0;
+}
 
 img {
   height: 100%;
@@ -58,7 +61,7 @@ body {
   width: 100%;
   background-color: #FAEBD7;
   font-family: "Gothic A1", sans-serif;
-  top: 120px;
+  top: 60px;
   position: relative;
   margin: 0;
 }
@@ -238,17 +241,20 @@ body main .ebookContainer .ebookBox .ebookContent h2 {
 body main .ebookDisplay {
   display: flex;
   justify-content: space-between;
+  min-height: 300px;
 }
 body main .ebookDisplay .imageHalf {
   width: 25%;
+  min-height: 500px !important;
 }
-body main .ebookDisplay .imageHalf img {
+body main .ebookDisplay .imageHalf > img {
+  display: block;
   box-shadow: 1px 1px 1px 1px black;
   border-radius: 3px;
   height: 90%;
 }
 body main .ebookDisplay .imageHalf h3 {
-  margin: 1% 0;
+  margin: 2% 0;
   background-color: #327D9C;
   text-align: center;
   width: 50%;
@@ -315,7 +321,7 @@ body main .comments .commentsHead form div {
 body main .comments .commentsHead form div textarea {
   width: 100%;
   border-radius: 3px;
-  font-family: "Gothic A1";
+  font-family: "Gothic A1", sans-serif;
   resize: none;
 }
 body main .comments .commentsList {
@@ -334,11 +340,25 @@ body main .comments .commentsList .comment .commentDate {
 }
 body main .comments .commentsList .comment .commentContent {
   width: 80%;
-  font-family: "Gothic A1";
+  font-family: "Gothic A1", sans-serif;
   overflow: hidden;
   text-overflow: ellipsis;
   border: none;
   resize: vertical;
+}
+body .allTables {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+body .commentTable {
+  width: 33%;
+}
+body .ebookTable {
+  width: 40%;
+}
+body .userTable {
+  width: 25%;
 }
 body .adminHead, body .adminTables {
   display: flex;
@@ -347,7 +367,7 @@ body .adminHead, body .adminTables {
 body .adminHead .adminComments, body .adminHead .adminBooks, body .adminHead .adminUsers, body .adminTables .adminComments, body .adminTables .adminBooks, body .adminTables .adminUsers {
   display: flex;
   justify-content: space-around;
-  width: 38%;
+  width: 100%;
   background-color: white;
   border: 1px black solid;
   border-radius: 3px;
@@ -357,11 +377,20 @@ body .adminHead .adminComments, body .adminHead .adminBooks, body .adminHead .ad
 body .adminHead .adminComments div, body .adminHead .adminBooks div, body .adminHead .adminUsers div, body .adminTables .adminComments div, body .adminTables .adminBooks div, body .adminTables .adminUsers div {
   width: 16%;
 }
-body .adminHead .adminUsers, body .adminTables .adminUsers {
-  width: 19%;
+body .adminHead .adminComments .btn, body .adminHead .adminBooks .btn, body .adminHead .adminUsers .btn, body .adminTables .adminComments .btn, body .adminTables .adminBooks .btn, body .adminTables .adminUsers .btn {
+  border: 1px black solid;
+  border-radius: 3px;
+  box-shadow: 1px 1px 1px 1px black;
+  background-color: white !important;
+}
+body .adminHead .adminComments .btn a, body .adminHead .adminBooks .btn a, body .adminHead .adminUsers .btn a, body .adminTables .adminComments .btn a, body .adminTables .adminBooks .btn a, body .adminTables .adminUsers .btn a {
+  color: black;
+}
+body .adminHead .adminComments, body .adminHead .adminUsers, body .adminHead .ab2, body .adminTables .adminComments, body .adminTables .adminUsers, body .adminTables .ab2 {
+  padding: 12px 0;
 }
 body .adminTables {
-  margin-top: 3%;
+  margin-top: 20px;
 }
 body .adminTables div {
   background-color: #327D9C !important;
@@ -369,27 +398,53 @@ body .adminTables div {
   padding: 1% 0;
 }
 body .adminContent {
+  width: 100%;
+  height: auto;
   display: flex;
   justify-content: space-around;
 }
-body .adminContent .adminComments, body .adminContent .adminBooks, body .adminContent .adminUsers {
+body .adminContent .adminComments {
   background-color: white;
   border: 1px black solid;
   border-radius: 3px;
   box-shadow: 1px 1px 1px 1px black;
-  width: 38%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+body .adminContent .adminComments .adminCol {
+  max-height: 100px;
+}
+body .adminContent .adminBooks {
+  background-color: white;
+  border: 1px black solid;
+  border-radius: 3px;
+  box-shadow: 1px 1px 1px 1px black;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
 }
 body .adminContent .adminUsers {
-  width: 19%;
+  background-color: white;
+  border: 1px black solid;
+  border-radius: 3px;
+  box-shadow: 1px 1px 1px 1px black;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+body .adminContent .adminUsers .adminCol {
+  max-height: 100px;
 }
 body .adminContent .adminCol {
   width: 100%;
   display: flex;
   justify-content: space-around;
   text-align: center;
+  height: 200px;
 }
 body .adminContent .adminCol a {
   line-height: 28px;
@@ -411,7 +466,9 @@ body .adminContent .adminCol .tableParam {
   align-items: center;
   width: 15%;
   font-size: 1em;
+  font-family: "Gothic A1", sans-serif;
   resize: none;
+  word-break: break-all;
 }
 body .adminContent .adminCol .tableParam h2 {
   color: black;
@@ -419,6 +476,12 @@ body .adminContent .adminCol .tableParam h2 {
 }
 body .adminContent .adminCol .tableParam form input {
   width: 100% !important;
+}
+body .adminContent .adminCol .t2 {
+  width: 25%;
+}
+body .adminContent .adminCol textarea {
+  font-size: 0.7em !important;
 }
 body .adminContent .line {
   width: 100%;

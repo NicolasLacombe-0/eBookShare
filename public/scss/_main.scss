@@ -12,7 +12,7 @@ body{
     width: 100%;
     background-color: $aw;
     font-family: 'Gothic A1', sans-serif;
-    top: 120px;
+    top: 60px;
     position: relative;
     margin: 0;
     main{
@@ -204,15 +204,18 @@ body{
         .ebookDisplay{  // --------- book's own page, content part
             display: flex;
             justify-content: space-between;
+            min-height: 300px;
             .imageHalf{
                 width: 25%;
-                img{
+                min-height: 500px !important;
+                &>img{
+                    display: block;
                     box-shadow: 1px 1px 1px 1px black;
                     border-radius: 3px;
                     height: 90%;
                 }
                 h3{
-                    margin: 1% 0;
+                    margin: 2% 0;
                     background-color: $gb;
                     text-align: center;
                     width: 50%;
@@ -277,7 +280,7 @@ body{
                         textarea{
                             width: 100%;
                             border-radius: 3px;
-                            font-family: "Gothic A1";
+                            font-family: "Gothic A1", sans-serif;
                             resize: none;
                         }
                     }
@@ -299,7 +302,7 @@ body{
                     }
                     .commentContent{
                         width: 80%;
-                        font-family: "Gothic A1";
+                        font-family: "Gothic A1", sans-serif;
                         overflow: hidden;
                         text-overflow: ellipsis;
                         border: none;
@@ -310,14 +313,28 @@ body{
         }
         
     }
-    
+    .allTables{
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-start;
+    }
+    .commentTable{
+        width: 33%;
+    }
+    .ebookTable{
+        width: 40%;
+    }
+    .userTable{
+        width: 25%;
+    }
+
     .adminHead,.adminTables{
         display: flex;
         justify-content: space-around;
         .adminComments,.adminBooks,.adminUsers{
             display: flex;
             justify-content: space-around;
-            width: 38%;
+            width: 100%;
             background-color: white;
             border: 1px black solid;
             border-radius: 3px;
@@ -326,14 +343,22 @@ body{
             div{
                 width: 16%;
             }
+            .btn{
+                border: 1px black solid;
+                border-radius: 3px;
+                box-shadow: 1px 1px 1px 1px black;
+                background-color: white !important;
+                a{color: black;}
+            }
         }
-        .adminUsers{
-            width: 19%;
+        .adminComments,.adminUsers,.ab2{
+            padding:12px 0;
         }
     }
+
     .adminTables{
         
-        margin-top: 3%;
+        margin-top: 20px;
         div{
             background-color: $gb !important;
             color: white;
@@ -341,26 +366,54 @@ body{
         }
     }
     .adminContent{
+        width: 100%;
+        height: auto;
         display: flex;
         justify-content: space-around;
-        .adminComments,.adminBooks,.adminUsers{
+        .adminComments{
             background-color: white;
             border: 1px black solid;
             border-radius: 3px;
             box-shadow: 1px 1px 1px 1px black;
-            width: 38%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+            .adminCol{
+                max-height: 100px;
+            }
+        }
+        .adminBooks{
+            background-color: white;
+            border: 1px black solid;
+            border-radius: 3px;
+            box-shadow: 1px 1px 1px 1px black;
+            width: 100%;
             display: flex;
             justify-content: space-between;
             flex-direction: column;
         }
         .adminUsers{
-            width: 19%;
+            background-color: white;
+            border: 1px black solid;
+            border-radius: 3px;
+            box-shadow: 1px 1px 1px 1px black;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+        }
+        .adminUsers{
+            .adminCol{
+                max-height: 100px;
+            }
         }
         .adminCol{
             width: 100%;
             display: flex;
             justify-content: space-around;
             text-align: center;
+            height: 200px;
             a{
                 line-height: 28px;
                 box-sizing: border-box;
@@ -375,13 +428,16 @@ body{
                 border-radius: 3px;
                 border: 1px black solid;
             }
+            
             .tableParam{
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 width: 15%;
                 font-size: 1em;
+                font-family: "Gothic A1", sans-serif;
                 resize: none;
+                word-break: break-all;
                 h2{
                     color: black;
                     font-size: 1em;
@@ -391,6 +447,12 @@ body{
                         width: 100% !important;
                     }
                 }
+            }
+            .t2{
+                width: 25%;
+            }
+            textarea{
+                font-size:0.7em !important;
             }
 
         }

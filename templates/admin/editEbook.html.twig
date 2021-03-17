@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    eBookStore - Editing Ebook
+{% endblock %}
+
+{% block body %}
+<main>
+    <section class="forms">
+        {{ form_start(form)}}
+            {{form_widget(form)}}
+            <input type="submit" class="btn" value="Save">
+        {{ form_end(form) }}
+    </section>
+</main>
+{% endblock %}
