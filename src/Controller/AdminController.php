@@ -2,8 +2,10 @@
 
 namespace App\Controller;
 
+use App\Entity\Comment;
 use App\Entity\Ebook;
 use App\Entity\User;
+use App\Form\CommentType;
 use App\Form\EbookType;
 use App\Form\UserType;
 use App\Repository\CommentRepository;
@@ -37,8 +39,54 @@ class AdminController extends AbstractController
     }
 
     /**
+     * @Route("/admin/editComment/{id}", name="adminCommentEdit")
+     * @IsGranted("ROLE_ADMIN")
+     */
+    public function editingComment(Comment $comment, Request $request, EntityManagerInterface $entityManager): Response
+    {
+        $form = $this->createForm(CommentType::class, $comment);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $comment->setEbook($comment->getEbook())
+                ->setUser($comment->getUser())
+                ->setUpdatedAt(new \DateTime())
+            ;
+
+            $entityManager->persist($comment);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('admin')
+            ;
+        }
+
+        return $this->render(
+            'comment/editComment.html.twig',
+            [
+                'comment' => $comment,
+                'form' => $form->createView(),
+            ]
+        );
+    }
+
+    /**
+     * @Route("/admin/{id}", name="adminCommentDeletion", methods="delete")
+     * @IsGranted("ROLE_ADMIN")
+     */
+    public function adminCommentDeletion(Comment $comment, Request $request, EntityManagerInterface $entityManager): Response
+    {
+        if ($this->isCsrfTokenValid('SUP'.$comment->getId(), $request->get('_token'))) {
+            $entityManager->remove($comment);
+            $entityManager->flush();
+            // $this->addFlash('success', 'Successfully deleted');
+
+            return $this->redirectToRoute('admin');
+        }
+    }
+
+    /**
      * @Route("/admin/addEbook", name="ebookAdd")
      * @Route("/admin/editEbook/{id}", name="ebookEdit")
+     * @IsGranted("ROLE_ADMIN")
      */
     public function editingEbook(Ebook $ebook = null, Request $request, EntityManagerInterface $entityManager): Response
     {
@@ -67,6 +115,7 @@ class AdminController extends AbstractController
 
     /**
      * @Route("/admin/{id}}", name="ebookDeletion", methods="delete")
+     * @IsGranted("ROLE_ADMIN")
      */
     public function ebookDeletion(Ebook $ebook, Request $request, EntityManagerInterface $entityManager): Response
     {
@@ -81,6 +130,7 @@ class AdminController extends AbstractController
 
     /**
      * @Route("/admin/editUser/{id}", name="userEdit")
+     * @IsGranted("ROLE_ADMIN")
      */
     public function editingUser(User $user, Request $request, EntityManagerInterface $entityManager, UserPasswordEncoderInterface $encoder): Response
     {
@@ -111,6 +161,7 @@ class AdminController extends AbstractController
 
     /**
      * @Route("/admin/{id}", name="userDeletion", methods="delete")
+     * @IsGranted("ROLE_ADMIN")
      */
     public function userDeletion(User $user, Request $request, EntityManagerInterface $entityManager): Response
     {

@@ -135,23 +135,6 @@ body main .forms form a {
   margin-top: 6.6px !important;
   box-sizing: border-box;
 }
-body main .comments form {
-  width: 100%;
-}
-body main .comments form #comment div {
-  display: flex;
-  flex-direction: column;
-}
-body main .comments form #comment div label {
-  display: none;
-}
-body main .comments form #comment div textarea {
-  height: 20vh;
-}
-body main .comments form .btn {
-  margin: 5% 40%;
-  width: 20%;
-}
 body main .reviews-head {
   width: 100%;
   display: flex;
@@ -222,8 +205,8 @@ body main .ebookContainer .ebookBox {
 body main .ebookContainer .ebookBox img {
   background-color: black;
   display: block;
-  height: 80%;
-  object-fit: contain !important;
+  height: 100%;
+  object-fit: cover !important;
 }
 body main .ebookContainer .ebookBox .ebookContent {
   display: flex;
@@ -244,7 +227,8 @@ body main .ebookDisplay {
   min-height: 300px;
 }
 body main .ebookDisplay .imageHalf {
-  width: 25%;
+  width: 300px !important;
+  max-height: 500px !important;
   min-height: 500px !important;
 }
 body main .ebookDisplay .imageHalf > img {
@@ -264,6 +248,7 @@ body main .ebookDisplay .imageHalf h3 {
 }
 body main .ebookDisplay .contentHalf {
   width: 70%;
+  margin-left: 1%;
 }
 body main .ebookDisplay .contentHalf .contentHead {
   display: flex;
@@ -281,6 +266,7 @@ body main .ebookDisplay .contentHalf .contentHead .btns .btn {
   color: white;
   background-color: #327D9C;
   padding: 5% 3%;
+  height: 18px;
   width: 40%;
   border-radius: 5px;
   box-shadow: 1px 1px 1px 1px black;
@@ -296,13 +282,31 @@ body main .comments {
   background-color: white;
   border-radius: 3px;
 }
-body main .comments .commentsHead {
+body main .comments form {
+  width: 100%;
+}
+body main .comments form #comment div {
+  display: flex;
+  flex-direction: column;
+}
+body main .comments form #comment div label {
+  display: none;
+}
+body main .comments form #comment div textarea {
+  height: 20vh;
+}
+body main .comments form .btn {
+  margin: 5% 40%;
+  width: 20%;
+}
+body main .comments .addComment {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 10px;
 }
-body main .comments .commentsHead .btn {
+body main .comments .addComment .btn {
   text-align: center;
-  margin: 20px 0;
+  margin: 10px 0;
   color: white;
   background-color: #327D9C;
   padding: 1%;
@@ -310,15 +314,19 @@ body main .comments .commentsHead .btn {
   border-radius: 5px;
   box-shadow: 1px 1px 1px 1px black;
 }
-body main .comments .commentsHead form {
+body main .comments .addComment form {
   display: flex;
-  justify-content: space-evenly;
+  width: 80%;
+  justify-content: space-between;
 }
-body main .comments .commentsHead form div {
+body main .comments .addComment form div {
   margin-top: 1%;
-  width: 60%;
+  width: 80%;
 }
-body main .comments .commentsHead form div textarea {
+body main .comments .addComment form div label {
+  display: none;
+}
+body main .comments .addComment form div textarea {
   width: 100%;
   border-radius: 3px;
   font-family: "Gothic A1", sans-serif;
@@ -351,13 +359,13 @@ body .allTables {
   justify-content: space-around;
   align-items: flex-start;
 }
-body .commentTable {
+body .allTables .commentTable {
   width: 33%;
 }
-body .ebookTable {
+body .allTables .ebookTable {
   width: 40%;
 }
-body .userTable {
+body .allTables .userTable {
   width: 25%;
 }
 body .adminHead, body .adminTables {
@@ -486,6 +494,113 @@ body .adminContent .adminCol textarea {
 body .adminContent .line {
   width: 100%;
   border: 1px black solid;
+}
+
+@media screen and (max-width: 1224px) {
+  header nav .nav-content a:not(:nth-child(1)) {
+    width: 15%;
+  }
+  header nav .nav-content a:not(:nth-child(1)) p {
+    font-size: small;
+  }
+
+  main .genresContainer {
+    flex-direction: column;
+    width: 100%;
+  }
+  main .genresContainer .genreBox {
+    width: 100% !important;
+  }
+  main .ebookContainer .ebookBox {
+    width: 28% !important;
+    height: 60vh !important;
+  }
+  main .ebookContainer .ebookBox img {
+    height: 100%;
+    width: 100%;
+  }
+  main .ebookDisplay .contentHalf .contentHead {
+    flex-direction: column;
+  }
+  main .ebookDisplay .contentHalf .contentHead .btns {
+    width: 80% !important;
+  }
+  main .ebookDisplay .contentHalf .contentHead .btns .btn {
+    font-size: small;
+  }
+}
+@media screen and (max-width: 768px) {
+  header nav .nav-content a:not(:nth-child(1)) {
+    width: 25%;
+  }
+  header nav .nav-content a:not(:nth-child(1)) i {
+    display: none;
+  }
+  header nav .nav-content a:not(:nth-child(1)) p {
+    font-size: small;
+  }
+
+  main .genresContainer {
+    flex-direction: column;
+    width: 100%;
+  }
+  main .genresContainer .genreBox {
+    width: 100% !important;
+  }
+  main .ebookContainer .ebookBox {
+    width: 45% !important;
+    height: 60vh !important;
+  }
+  main .ebookContainer .ebookBox img {
+    height: 100%;
+    width: 100%;
+  }
+  main .ebookDisplay {
+    flex-direction: column-reverse;
+  }
+  main .ebookDisplay .contentHalf {
+    width: 100% !important;
+  }
+  main .ebookDisplay .contentHalf .contentHead .contentTitle {
+    text-align: center;
+  }
+  main .ebookDisplay .contentHalf .contentHead .btns {
+    width: 100% !important;
+    justify-content: space-evenly !important;
+  }
+  main .ebookDisplay .contentHalf .contentHead .btns .btn {
+    width: 30% !important;
+    font-size: small;
+  }
+}
+@media screen and (max-width: 380px) {
+  header nav .nav-content a:not(:nth-child(1)) {
+    width: 30%;
+  }
+  header nav .nav-content a:not(:nth-child(1)) i {
+    display: none;
+  }
+  header nav .nav-content a:not(:nth-child(1)) p {
+    font-size: small;
+  }
+
+  main .genresContainer {
+    flex-direction: column;
+    width: 100%;
+  }
+  main .genresContainer .genreBox {
+    width: 100% !important;
+  }
+  main .ebookContainer {
+    flex-direction: column;
+  }
+  main .ebookContainer .ebookBox {
+    width: 100% !important;
+  }
+  main .ebookContainer .ebookBox img {
+    height: 60vh !important;
+    width: 100%;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

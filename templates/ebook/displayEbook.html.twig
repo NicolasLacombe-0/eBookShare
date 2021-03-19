@@ -28,6 +28,10 @@
     <section class="comments">
         <div class="commentsHead">
             <h2>COMMENTS</h2>
+            
+        </div>
+        <ol class="commentsList">
+            <li class="addComment">
             {% if app.user %}
             {{form_start(commentForm)}}
                 {{form_row(commentForm.content,{'attr':{'placeholder':'Write your comment'},'label':' '})}}
@@ -37,8 +41,7 @@
             {% else %}
             <a href="{{ path("app_login") }}" class="btn">Log in to comment</a>
             {% endif %}
-        </div>
-        <ol class="commentsList">
+            </li>
             <hr>
             {% for review in comment | reverse(true)%}
             <li class="comment">

@@ -37,12 +37,12 @@
                         <h2>{{review.ebook.title}}</h2>
                     </a>
                     <div class=" tableParam">
-                        <a class="btn" href="{{ path('commentEdit',{'id' : review.id, 'ebook' : review.ebook.id}) }}">EDIT</a>
+                        <a class="btn" href="{{ path('adminCommentEdit',{'id' : review.id, 'ebook' : review.ebook.id}) }}">EDIT</a>
                     </div>
-                    <form class="tableParam" method="POST" action="{{ path('commentDeletion',{'id' : review.id}) }}">
+                    <form class="tableParam" method="POST" action="{{ path('adminCommentDeletion',{'id' : review.id}) }}">
                         <input type="hidden" name="_method" value="delete">
                         <input type="hidden" name="_token" value="{{csrf_token('SUP' ~ review.id ) }}">
-                        <input class="btn" type="submit" name="_method" value="DEL">
+                        <input class="btn" type="submit" name="_method" value="DELETE">
                     </form>
                 </div>
                 {% endfor %}
@@ -82,7 +82,7 @@
                     <form class="tableParam" method="POST" action="{{ path('ebookDeletion',{'id' : ebook.id}) }}">
                         <input type="hidden" name="_method" value="delete">
                         <input type="hidden" name="_token" value="{{csrf_token('SUP' ~ ebook.id ) }}">
-                        <input class="btn " type="submit" name="_method" value="DEL">
+                        <input class="btn " type="submit" name="_method" value="DELETE">
                     </form>
                 </div>
                 <div class="line"></div>
@@ -117,7 +117,7 @@
                     <form class="tableParam t2" method="POST" action="{{ path('userDeletion',{'id' : user.id}) }}">
                         <input type="hidden" name="_method" value="delete">
                         <input type="hidden" name="_token" value="{{csrf_token('SUP' ~ user.id ) }}">
-                        <input class="btn " type="submit" name="_method" value="DEL">
+                        <input class="btn " type="submit" name="_method" value="DELETE">
                     </form>
                 </div>
                 <div class="line"></div>

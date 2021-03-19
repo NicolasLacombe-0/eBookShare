@@ -11,7 +11,7 @@
             {% for ebook in ebook %}
             <a class="ebookBox" href="{{ path('displayEbook', {'id' : ebook.id }) }}">
                 <img src='{{ asset('img/' ~ ebook.image )}}' alt="book image">
-                <div class="ebookContent"><h2>{{ebook.title}}</h2></div>
+                {# <div class="ebookContent"><h2>{{ebook.title}}</h2></div> #}
             </a>
             {% endfor %}
 
