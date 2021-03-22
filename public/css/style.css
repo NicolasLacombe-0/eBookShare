@@ -505,11 +505,10 @@ body .adminContent .line {
   }
 
   main .genresContainer {
-    flex-direction: column;
     width: 100%;
   }
   main .genresContainer .genreBox {
-    width: 100% !important;
+    width: 45% !important;
   }
   main .ebookContainer .ebookBox {
     width: 28% !important;
@@ -572,19 +571,16 @@ body .adminContent .line {
     width: 30% !important;
     font-size: small;
   }
-  main .comments {
-    padding: 0;
-  }
-  main .comments .commentList {
+  main .comments .commentsList {
     padding: 0 !important;
   }
-  main .comments .commentList .addComment form {
+  main .comments .commentsList .addComment form {
     width: 100% !important;
   }
-  main .comments .commentList .addComment form div {
+  main .comments .commentsList .addComment form div {
     width: 70%;
   }
-  main .comments .commentList .addComment form button {
+  main .comments .commentsList .addComment form button {
     width: 25%;
   }
   main .reviews .review {
@@ -612,13 +608,6 @@ body .adminContent .line {
     font-size: small;
   }
 
-  main .genresContainer {
-    flex-direction: column;
-    width: 100%;
-  }
-  main .genresContainer .genreBox {
-    width: 100% !important;
-  }
   main .ebookContainer {
     flex-direction: column;
   }

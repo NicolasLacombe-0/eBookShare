@@ -14,10 +14,9 @@
     }
     main{
         .genresContainer{
-            flex-direction: column;
             width: 100%;
             .genreBox{
-                width: 100% !important;
+                width: 45% !important;
             }
         }
         .ebookContainer{
@@ -103,8 +102,7 @@
             }
         }
         .comments{
-            padding: 0;
-            .commentList{
+            .commentsList{
                 padding: 0 !important;
                 .addComment{
                     form{
@@ -154,13 +152,13 @@
         }
     }
     main{
-        .genresContainer{
-            flex-direction: column;
-            width: 100%;
-            .genreBox{
-                width: 100% !important;
-            }
-        }
+        // .genresContainer{
+        //     flex-direction: column;
+        //     width: 100%;
+        //     .genreBox{
+        //         width: 100% !important;
+        //     }
+        // }
         .ebookContainer{
             flex-direction: column;
             .ebookBox{
