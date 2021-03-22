@@ -464,7 +464,7 @@ body .adminContent .adminCol .btn {
   color: white;
   background-color: #327D9C;
   height: 30px;
-  width: 70%;
+  width: 90%;
   border-radius: 3px;
   border: 1px black solid;
 }
@@ -571,6 +571,34 @@ body .adminContent .line {
   main .ebookDisplay .contentHalf .contentHead .btns .btn {
     width: 30% !important;
     font-size: small;
+  }
+  main .comments {
+    padding: 0;
+  }
+  main .comments .commentList {
+    padding: 0 !important;
+  }
+  main .comments .commentList .addComment form {
+    width: 100% !important;
+  }
+  main .comments .commentList .addComment form div {
+    width: 70%;
+  }
+  main .comments .commentList .addComment form button {
+    width: 25%;
+  }
+  main .reviews .review {
+    justify-content: space-around !important;
+    flex-wrap: wrap;
+  }
+  main .reviews .review a {
+    width: 30%;
+  }
+  main .reviews .review p {
+    width: 75%;
+  }
+  main .reviews .review form {
+    width: 25%;
   }
 }
 @media screen and (max-width: 380px) {

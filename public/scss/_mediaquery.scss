@@ -102,6 +102,38 @@
                 }
             }
         }
+        .comments{
+            padding: 0;
+            .commentList{
+                padding: 0 !important;
+                .addComment{
+                    form{
+                        width: 100% !important;
+                        div{
+                            width: 70%;
+                        };
+                        button{
+                            width: 25%;
+                        };
+                    }
+                }
+            }
+        }
+        .reviews{
+            .review{
+                justify-content: space-around !important;
+                flex-wrap: wrap;
+                a{
+                    width: 30%;
+                }
+                p{
+                    width: 75%;
+                }
+                form{
+                    width: 25%;
+                }
+            }
+        }
     }
 }
 
