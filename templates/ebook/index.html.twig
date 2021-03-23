@@ -1,4 +1,4 @@
-{# {% extends 'base.html.twig' %} #}
+{% extends 'base.html.twig' %}
 
 {% block title %}eBookShare - Browsing{% endblock %}
 
@@ -6,13 +6,14 @@
 <main>
     <section class="genre">
         <h1>{{name.name}}</h1>
-        {# <div class="ebookContainer">    #}
+        <div class="ebookContainer">   
 
-            {# {% for ebook in ebook %}
+            {% for ebook in ebook %}
             <a class="ebookBox" href="{{ path('displayEbook', {'id' : ebook.id }) }}">
                 <img src='{{ asset('img/' ~ ebook.image )}}' alt="book image">
+                {# <div class="ebookContent"><h2>{{ebook.title}}</h2></div> #}
             </a>
-            {% endfor %} #}
+            {% endfor %}
 
             {# list made manually, make it a loop "for genre in category" later #}
             {# <div class="ebookBox">
