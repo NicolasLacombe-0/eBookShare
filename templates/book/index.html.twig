@@ -1,12 +1,10 @@
 {% extends 'base.html.twig' %}
-
 {% block title %}eBookShare - Home{% endblock %}
-
 {% block body %}
 <main>
     <section class="allGenres">
         <h1>BROWSE BY GENRE</h1>
-        <div class="genresContainer">   
+        <div class="genresContainer">
             {% for genre in category %}
                 <a href="{{ path("ebookPerCategory",{'category':genre.id})}}" class="genreBox">
                     <img src="{{asset('img/' ~ genre.image)}}" alt="{{genre.image}}">

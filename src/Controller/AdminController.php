@@ -7,7 +7,6 @@ use App\Entity\Ebook;
 use App\Entity\User;
 use App\Form\CommentType;
 use App\Form\EbookType;
-use App\Form\UserType;
 use App\Repository\CommentRepository;
 use App\Repository\EbookRepository;
 use App\Repository\UserRepository;
@@ -17,7 +16,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class AdminController extends AbstractController
 {
@@ -69,7 +67,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/{id}", name="adminCommentDeletion", methods="delete")
+     * @Route("/admin/comment/{id}", name="adminCommentDeletion", methods="delete")
      * @IsGranted("ROLE_ADMIN")
      */
     public function adminCommentDeletion(Comment $comment, Request $request, EntityManagerInterface $entityManager): Response
@@ -114,63 +112,32 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/{id}}", name="ebookDeletion", methods="delete")
+     * @Route("/admin/ebook/{id<\d+>}", name="ebookDeletion", methods="delete")
      * @IsGranted("ROLE_ADMIN")
      */
     public function ebookDeletion(Ebook $ebook, Request $request, EntityManagerInterface $entityManager): Response
     {
-        if ($this->isCsrfTokenValid('SUP'.$ebook->getId(), $request->get('_token'))) {
+        if ($this->isCsrfTokenValid('SUPPR'.$ebook->getId(), $request->get('_token'))) {
             $entityManager->remove($ebook);
             $entityManager->flush();
-            $this->addFlash('success', 'Successfully deleted');
-
-            return $this->redirectToRoute('admin');
+            //$this->addFlash('success', 'Successfully deleted');
         }
+
+        return $this->redirectToRoute('admin');
     }
 
     /**
-     * @Route("/admin/editUser/{id}", name="userEdit")
-     * @IsGranted("ROLE_ADMIN")
-     */
-    public function editingUser(User $user, Request $request, EntityManagerInterface $entityManager, UserPasswordEncoderInterface $encoder): Response
-    {
-        $form = $this->createForm(UserType::class, $user);
-        $form->handleRequest($request);
-        $roles = $user->getRoles();
-        if ($form->isSubmitted() && $form->isValid()) {
-            $passwordCrypto = $encoder->encodePassword($user, $user->getPassword());
-            $user->setPassword($passwordCrypto);
-            $user->setRoles($roles)
-            ;
-
-            $entityManager->persist($user);
-            $entityManager->flush();
-
-            return $this->redirectToRoute('admin')
-            ;
-        }
-
-        return $this->render(
-            'admin/editUser.html.twig',
-            [
-                'user' => $user,
-                'form' => $form->createView(),
-            ]
-        );
-    }
-
-    /**
-     * @Route("/admin/{id}", name="userDeletion", methods="delete")
+     * @Route("/admin/user/{id<\d+>}", name="userDeletion", methods="delete")
      * @IsGranted("ROLE_ADMIN")
      */
     public function userDeletion(User $user, Request $request, EntityManagerInterface $entityManager): Response
     {
-        if ($this->isCsrfTokenValid('SUP'.$user->getId(), $request->get('_token'))) {
+        if ($this->isCsrfTokenValid('SUPPRESS'.$user->getId(), $request->get('_token'))) {
             $entityManager->remove($user);
             $entityManager->flush();
-            $this->addFlash('success', 'Successfully deleted');
-
-            return $this->redirectToRoute('admin');
+            // $this->addFlash('success', 'Successfully deleted');
         }
+
+        return $this->redirectToRoute('admin');
     }
 }

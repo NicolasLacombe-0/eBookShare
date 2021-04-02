@@ -25,24 +25,23 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\Length(min=5, max=12, minMessage="Please enter more than 4 characters", maxMessage="Please enter less than 13 characters")
+     * @Assert\Length(min=5, max=12, minMessage="Please enter more than 4 characters for your username  ", maxMessage="Please enter less than 13 characters")
      */
     private $username;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\Length(min=5, max=12, minMessage="Please enter more than 4 characters", maxMessage="Please enter less than 13 characters")
+     * @Assert\Length(min=5, max=12, minMessage="Please enter more than 4 characters for your password", maxMessage="Please enter less than 13 characters")
      */
     private $password;
 
     /**
-     * @Assert\Length(min=5, max=12, minMessage="Please enter more than 4 characters", maxMessage="Please enter less than 13 characters")
      * @Assert\EqualTo(propertyPath="password", message="Your passwords are not the same.")
      */
     private $verificationPassword;
 
     /**
-     * @ORM\OneToMany(targetEntity=Comment::class, mappedBy="user", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=Comment::class, mappedBy="user", cascade={"remove"}, orphanRemoval=true)
      */
     private $comments;
 

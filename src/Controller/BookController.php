@@ -40,7 +40,6 @@ class BookController extends AbstractController // controller for the home page 
         $comment = $commentRepository->findBy([
             'user' => $user,
         ]);
-
         return $this->render('book/profile.html.twig', [
             'user' => $user,
             'comment' => $comment,
@@ -55,7 +54,6 @@ class BookController extends AbstractController // controller for the home page 
         if ($this->isCsrfTokenValid('SUP'.$comment->getId(), $request->get('_token'))) {
             $entityManager->remove($comment);
             $entityManager->flush();
-            $this->addFlash('success', 'Successfully deleted');
 
             return $this->redirectToRoute('account', ['id' => $comment->getUser()->getId()]);
         }

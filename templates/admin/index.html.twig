@@ -81,7 +81,7 @@
                     </div>
                     <form class="tableParam" method="POST" action="{{ path('ebookDeletion',{'id' : ebook.id}) }}">
                         <input type="hidden" name="_method" value="delete">
-                        <input type="hidden" name="_token" value="{{csrf_token('SUP' ~ ebook.id ) }}">
+                        <input type="hidden" name="_token" value="{{csrf_token('SUPPR' ~ ebook.id ) }}">
                         <input class="btn " type="submit" name="_method" value="DELETE">
                     </form>
                 </div>
@@ -111,12 +111,10 @@
                 <div class="user adminCol">
                     <h3 class="tableParam t2">{{user.id}}</h3>
                     <p class="tableParam t2">{{user.username}}</p>
-                    <div class=" tableParam t2">
-                        <a class="btn" href="{{ path('userEdit',{'id' : user.id}) }}">EDIT</a>
-                    </div>
+                    <div class=" tableParam t2"></div>
                     <form class="tableParam t2" method="POST" action="{{ path('userDeletion',{'id' : user.id}) }}">
                         <input type="hidden" name="_method" value="delete">
-                        <input type="hidden" name="_token" value="{{csrf_token('SUP' ~ user.id ) }}">
+                        <input type="hidden" name="_token" value="{{csrf_token('SUPPRESS' ~ user.id ) }}">
                         <input class="btn " type="submit" name="_method" value="DELETE">
                     </form>
                 </div>

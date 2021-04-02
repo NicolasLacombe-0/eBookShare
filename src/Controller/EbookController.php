@@ -37,7 +37,7 @@ class EbookController extends AbstractController
     public function findPerCategory(EbookRepository $repository, $category, CategoryRepository $categoryRepository): Response
     {
         $ebook = $repository->findByCategory($category);
-        $name = $categoryRepository->findOneBy([   //----------- name a new variable to get category.name (now name.name) out of a "for" revering to the database
+        $name = $categoryRepository->findOneBy([
             'id' => $category,
         ]);
 

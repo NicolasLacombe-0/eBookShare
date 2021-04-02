@@ -10,6 +10,9 @@
             {{ form_row(form.username,{'attr':{'placeholder':'username'},'label':' '}) }}
             {{ form_row(form.password,{'attr':{'placeholder':'password'},'label':' '}) }}
             {{ form_row(form.verificationPassword,{'attr':{'placeholder':'re-enter password'},'label':' '}) }}
+            {{ form_errors(form.username) }}
+            {{ form_errors(form.password) }}
+            {{ form_errors(form.verificationPassword) }}
             <input class="btn" type="submit" value="Register">
         {{ form_end(form) }}
     </section>

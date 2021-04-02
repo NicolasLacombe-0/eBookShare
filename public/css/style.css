@@ -120,6 +120,12 @@ body main .forms form div input {
   width: 100%;
   border-radius: 5px;
 }
+body main .forms form div ul {
+  display: none;
+}
+body main .forms form div textarea {
+  font-family: "Gothic A1", sans-serif;
+}
 body main .forms form .btn {
   font-size: 16px;
   text-align: center;
@@ -134,6 +140,15 @@ body main .forms form .btn {
 body main .forms form a {
   margin-top: 6.6px !important;
   box-sizing: border-box;
+}
+body main .forms form ul {
+  padding: 0;
+}
+body main .forms form ul li {
+  list-style: none;
+  font-style: italic;
+  color: red;
+  font-size: 0.7em;
 }
 body main .reviews-head {
   width: 100%;
